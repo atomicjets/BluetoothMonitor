@@ -1,0 +1,15 @@
+<div data-role="content">
+	<ul id="devicelist" data-split-icon="grid" data-role="listview" data-theme="g" data-filter="true">
+	<% _.each(devices, function(device) { %>
+		<li>
+			<a href="#device/<%= device.getId() %>"><p style="white-space:normal"><%= device.getName()+" ["+device.getId()+"]" %></p></a>
+			<a href="#chart/<%= device.getId() %>"></a>
+		</li> 
+	<% }); %>
+    </ul>
+</div>
+<div data-id="thefooter "data-role="footer" data-position="fixed" class="ui-bar">
+	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+		<input id="rescan" data-icon="refresh" value="Rescan" type="button" data-mini="true">
+	</div>		
+</div>		

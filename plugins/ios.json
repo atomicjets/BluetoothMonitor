@@ -1,0 +1,39 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-ble-central": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-potpie-location-service": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        },
+        "cordova-plugin-potpie-mqtt-client": {
+            "PACKAGE_NAME": "org.potpie.bluetooth.monitor"
+        }
+    },
+    "dependent_plugins": {}
+}

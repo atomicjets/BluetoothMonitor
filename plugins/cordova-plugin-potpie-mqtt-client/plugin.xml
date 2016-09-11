@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="cordova-plugin-potpie-mqtt-client"
+    version="1.0.0">
+
+    <name>MQTTClientPlugin</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.2.0" />
+    </engines>
+
+    <js-module src="www/MQTTClient.js" name="MQTTClientPlugin">
+        <clobbers target="window.mqttclient" />
+    </js-module>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MQTTClientPlugin">
+                <param name="ios-package" value="MQTTClientPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+		
+		<header-file src="src/ios/MQTTClientPlugin.h" />
+        <source-file src="src/ios/MQTTClientPlugin.m" />
+
+		<header-file src="src/ios/MQTTClientConnection.h" />
+        <source-file src="src/ios/MQTTClientConnection.m" />
+
+		<header-file src="src/ios/MQTTClient/MQTTCFSocketDecoder.h" />
+        <source-file src="src/ios/MQTTClient/MQTTCFSocketDecoder.m" />
+		<header-file src="src/ios/MQTTClient/MQTTCFSocketEncoder.h" />
+        <source-file src="src/ios/MQTTClient/MQTTCFSocketEncoder.m" />
+		<header-file src="src/ios/MQTTClient/MQTTCFSocketTransport.h" />
+        <source-file src="src/ios/MQTTClient/MQTTCFSocketTransport.m" />
+		<header-file src="src/ios/MQTTClient/MQTTClient.h" />
+		<header-file src="src/ios/MQTTClient/MQTTCoreDataPersistence.h" />
+        <source-file src="src/ios/MQTTClient/MQTTCoreDataPersistence.m" />
+		<header-file src="src/ios/MQTTClient/MQTTDecoder.h" />
+        <source-file src="src/ios/MQTTClient/MQTTDecoder.m" />
+		<header-file src="src/ios/MQTTClient/MQTTInMemoryPersistence.h" />
+        <source-file src="src/ios/MQTTClient/MQTTInMemoryPersistence.m" />
+		<header-file src="src/ios/MQTTClient/MQTTMessage.h" />
+        <source-file src="src/ios/MQTTClient/MQTTMessage.m" />
+		<header-file src="src/ios/MQTTClient/MQTTPersistence.h" />
+		<header-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicy.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicy.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyDecoder.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyDecoder.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyEncoder.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyEncoder.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyTransport.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSSLSecurityPolicyTransport.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSession.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSession.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSessionLegacy.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSessionLegacy.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSessionManager.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSessionManager.m" />
+		<header-file src="src/ios/MQTTClient/MQTTSessionSynchron.h" />
+        <source-file src="src/ios/MQTTClient/MQTTSessionSynchron.m" />
+		<header-file src="src/ios/MQTTClient/MQTTTransport.h" />
+        <source-file src="src/ios/MQTTClient/MQTTTransport.m" />
+		<header-file src="src/ios/MQTTClient/MQTTLog.h" />
+        
+        <framework src="CoreData.framework" />
+        <framework src="Security.framework" />
+        <framework src="CFNetwork.framework" />
+        
+    </platform>
+</plugin>

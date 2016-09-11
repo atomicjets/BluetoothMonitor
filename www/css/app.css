@@ -1,0 +1,27 @@
+.ui-icon-things:after {
+    background-image: url('../images/thing.png');
+    background-size: 64px 64px;
+}
+
+.ui-icon-links:after {
+    background-image: url('../images/link.png');
+    background-size: 64px 64px;
+}
+
+.banner-logo-img {
+	position: absolute; 
+	margin-left: 35px; 
+	margin-top: 4px;
+}
+
+.big-icon {
+   padding-top: 4em;
+   width: 6em;
+}
+ 
+.big-icon::after {
+   margin-left: -1.3em;
+   width: 2.9em;
+   height: 2.9em;
+   background-size: 2.6em 2.6em;
+}

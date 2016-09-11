@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MQTT Browser Test</title>
+		<script type="text/javascript" src="js/mqtt.js"></script>
+		<script>
+		var options = {
+			"host": "A2W5FSZSGK9VM7.iot.us-east-1.amazonaws.com",
+			"port": 8883,
+			"clientId": "RBiPhone",
+			"thingName": "RBiPhone",
+		);
+			
+options.caCert = "-----BEGIN CERTIFICATE-----\
+MIIE0zCCA7ugAwIBAgIQGNrRniZ96LtKIVjNzGs7SjANBgkqhkiG9w0BAQUFADCB\
+yjELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\
+ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTowOAYDVQQLEzEoYykgMjAwNiBWZXJp\
+U2lnbiwgSW5jLiAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MUUwQwYDVQQDEzxW\
+ZXJpU2lnbiBDbGFzcyAzIFB1YmxpYyBQcmltYXJ5IENlcnRpZmljYXRpb24gQXV0\
+aG9yaXR5IC0gRzUwHhcNMDYxMTA4MDAwMDAwWhcNMzYwNzE2MjM1OTU5WjCByjEL\
+MAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQLExZW\
+ZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTowOAYDVQQLEzEoYykgMjAwNiBWZXJpU2ln\
+biwgSW5jLiAtIEZvciBhdXRob3JpemVkIHVzZSBvbmx5MUUwQwYDVQQDEzxWZXJp\
+U2lnbiBDbGFzcyAzIFB1YmxpYyBQcmltYXJ5IENlcnRpZmljYXRpb24gQXV0aG9y\
+aXR5IC0gRzUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvJAgIKXo1\
+nmAMqudLO07cfLw8RRy7K+D+KQL5VwijZIUVJ/XxrcgxiV0i6CqqpkKzj/i5Vbex\
+t0uz/o9+B1fs70PbZmIVYc9gDaTY3vjgw2IIPVQT60nKWVSFJuUrjxuf6/WhkcIz\
+SdhDY2pSS9KP6HBRTdGJaXvHcPaz3BJ023tdS1bTlr8Vd6Gw9KIl8q8ckmcY5fQG\
+BO+QueQA5N06tRn/Arr0PO7gi+s3i+z016zy9vA9r911kTMZHRxAy3QkGSGT2RT+\
+rCpSx4/VBEnkjWNHiDxpg8v+R70rfk/Fla4OndTRQ8Bnc+MUCH7lP59zuDMKz10/\
+NIeWiu5T6CUVAgMBAAGjgbIwga8wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8E\
+BAMCAQYwbQYIKwYBBQUHAQwEYTBfoV2gWzBZMFcwVRYJaW1hZ2UvZ2lmMCEwHzAH\
+BgUrDgMCGgQUj+XTGoasjY5rw8+AatRIGCx7GS4wJRYjaHR0cDovL2xvZ28udmVy\
+aXNpZ24uY29tL3ZzbG9nby5naWYwHQYDVR0OBBYEFH/TZafC3ey78DAJ80M5+gKv\
+MzEzMA0GCSqGSIb3DQEBBQUAA4IBAQCTJEowX2LP2BqYLz3q3JktvXf2pXkiOOzE\
+p6B4Eq1iDkVwZMXnl2YtmAl+X6/WzChl8gGqCBpH3vn5fJJaCGkgDdk+bW48DW7Y\
+5gaRQBi5+MHt39tBquCWIMnNZBU4gcmU7qKEKQsTb47bDN0lAtukixlE0kF6BWlK\
+WE9gyn6CagsCqiUXObXbf+eEZSqVir2G3l6BFoMtEMze/aiCKm0oHw0LxOXnGiYZ\
+4fQRbxC1lfznQgUy286dUV4otp6F01vvpX1FQHKOtw5rDgb7MzVIcbidJ4vEZV8N\
+hnacRHr2lVz2XTIIM6RUthg/aFzyQkqFOFSDX9HoLPKsEdao7WNq\
+-----END CERTIFICATE-----\
+";
+
+options.clientCert = "-----BEGIN CERTIFICATE-----\
+MIIDWjCCAkKgAwIBAgIVAPerNWsULpeI7EDLzXzxWiREO2/dMA0GCSqGSIb3DQEB\
+CwUAME0xSzBJBgNVBAsMQkFtYXpvbiBXZWIgU2VydmljZXMgTz1BbWF6b24uY29t\
+IEluYy4gTD1TZWF0dGxlIFNUPVdhc2hpbmd0b24gQz1VUzAeFw0xNjAxMTYxMjI5\
+NTNaFw00OTEyMzEyMzU5NTlaMB4xHDAaBgNVBAMME0FXUyBJb1QgQ2VydGlmaWNh\
+dGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCE5LmnuZYyPkTePJat\
+yrDGhFnmg4ONJGVij3C8iGREyF2E/+3OXgKwqm4oeLKkXvGyHm0bHQvjQS3+tPn8\
+cXdDbblSeLHU34o43zGP9edQynlb+3h3sR2G0cBSO4mbPo1Vf9jcHV5jw3cXC4Wg\
+KIzWnLkS6UVsOsRCBlVKMfWfVDbjX9P+csipgJBxoQaLz6vcoQMx5isn9WIw/B0S\
+TavL6x+qxe+7fPtASipxCkSHrRSyg9H5FsG3rO2EceGvLo1vDnWfs1e8JjR8p4YM\
+xgv6ZcbDAPtlVUf368+mTBHvmib3C2/bnBOqQ9DMM7BUt0A9qJr8f2+uuOOpoOWS\
+6FALAgMBAAGjYDBeMB8GA1UdIwQYMBaAFNbOeYOiuZD71olxX56dz9ZScHv4MB0G\
+A1UdDgQWBBRH2CGbdSa6GFu4rfF9Fbu3PrbMSjAMBgNVHRMBAf8EAjAAMA4GA1Ud\
+DwEB/wQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEARJ7PTWEWb8JZUZVKHPsdOrbB\
+XrMnQc/l/ozwjVNWehEqLOcJ1JcvoeQ/d19Pyf+5OnNE2xQHWl7OTVW0vKRGYveB\
+uXJG8dP7DaPJz5YUNZ6Yv/awzisHymup229M0xA9HIB643z/fJKDwxua+evuKPjG\
+zj6wPdA8konYpnUj0eFKoq8h6D8kGaTn3wMH6VlcBloNLKjEgOj8+FapVBG7fa3I\
+fesXTQ71l+Ye8TJVrRubwlNrfXFX/ohkfSnUBBrEUYjkpvyEmXsy54GqVePv5lTG\
+wwRf9ttP1hnD6rpCx0KJK4lSSut5YwcukLRkXtEityMcpbm3THCurcxbYAtuGA==\
+-----END CERTIFICATE-----\
+";
+
+options.privateKey = "-----BEGIN RSA PRIVATE KEY-----\
+MIIEowIBAAKCAQEAhOS5p7mWMj5E3jyWrcqwxoRZ5oODjSRlYo9wvIhkRMhdhP/t\
+zl4CsKpuKHiypF7xsh5tGx0L40Et/rT5/HF3Q225Unix1N+KON8xj/XnUMp5W/t4\
+d7EdhtHAUjuJmz6NVX/Y3B1eY8N3FwuFoCiM1py5EulFbDrEQgZVSjH1n1Q241/T\
+/nLIqYCQcaEGi8+r3KEDMeYrJ/ViMPwdEk2ry+sfqsXvu3z7QEoqcQpEh60UsoPR\
++RbBt6zthHHhry6Nbw51n7NXvCY0fKeGDMYL+mXGwwD7ZVVH9+vPpkwR75om9wtv\
+25wTqkPQzDOwVLdAPaia/H9vrrjjqaDlkuhQCwIDAQABAoIBAFtD+XyGp++5c/Js\
+Cc8w9FZhbpwwlZfI9xfJCtNvl+zk7dT5LogbaB2L7js9KPJZggOhgaytNgzMJppW\
+D5ifFBjqsetBmF9pZbPJFHCZoFKLuuzAtur8aBq+0iWnXcmQG+Ar/PKt+LTq+E6L\
+SynCr3Z0C2ZBbbv2X/I4Bzr9NIJGfF52nV33mmD9PnikdYnPNkF48uu8sR/+fs+C\
+I9eOSaNBLoh6PdJ4bxG/3FBJGFQEuXzBU1t9gdZnBAu8MCNqYBlYaEvHTn4DFsde\
+NnxzTvzSSO99OKOFIKaM9eRx1Xeozat/eKfPFgYPPo9XQMVa6+frmEuw8K/9UR+y\
+vHksQYECgYEA8+mtHOiYFwwnz1fZlm4reF9NaeuQAc/zXMNuDXlbTlLc2VHj4zw9\
+sRD0/+4ee1zvCyP4rjFcyzB6iJrmiDO2SIG7JoDZO5zRNxy6IVoivA1UCxj60+Ai\
+qrTHDuieqyBkSs6wA4GHsMQjPOmMRsGnLO0ixx7OcuRQ01qG58kw/mUCgYEAi3qi\
+/q5aJVNQv7O+nucaDbfZFGEYNEiJ/bQrksXkQJ181kOJpWfqAiQlIDoV32OL/4mo\
+oAWDvRTAfHeaeuI/MD9dT3XycOjmwRG5iDhzvfOdTbgBAwXNTQUAAbYUdH9RIalr\
+gfhLjF5Q93Q7Bgh8LvbW0l5SRVEyowcYAtEJta8CgYBSqBCrKENKJCtlf27UJJeE\
+nj88ssBFbPQarnugA00m2LvQxYiFnAeH9qggBtC7m33Cd7kxRrccgFw16NBQvb17\
+CsOiQ63aHsVjeM+2t7XnplihviBaJq14zfRbIAeNFFgIZcyOE5opE/6hCMApxjxh\
+5CaR9eWeV7LwPNBUwgBhZQKBgBcGiM/ocoNE7Mio4KgU2K05E4IUwU0oSHd0fdj+\
+CD9OgGRSw+9lZzExTFu0mxXEtkDaNdcs8eGOAnTJvdvZa7sIStwqSXqwSB/JUEqX\
+nyvVgrtoy+n21DyJvcWKjHfq6LbY5CGRns8uZsljC7dkQTPzleUmowhEbkqRijo0\
+zhiLAoGBAOS/IzUZDaWOWdEVWX4/EjAvaVjVy0rUB01TLWM288D1RlcRQdcGi2no\
+OvtBXpFLzBJUqQElBQE2uVnxYGaRMmfAv8nHIR0FW9yWfi8ARZKx0G37gvY7k61v\
+qSpZESvc0djaNK/UOPff0zxSaDqc8yCcX6r/bJFdDl2byGxXouzE\
+-----END RSA PRIVATE KEY-----\
+";
+
+			var device = mqtt.connect(options);
+
+			device.on('message', function(topic, message) {
+			  console.log(message.toString());
+			});
+
+			device.on('connect', function(){
+				console.log('mqtt Connected');
+			});
+
+			device.on('error', function(error) {
+				console.log('mqtt error', error);
+			});
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+<div data-role="content">
+	<div data-role="collapsible" data-collapsed="true" data-inset="false"> 
+		<h3>MQTT</h3> 
+		<label>Host:<input id="host" type="text" value="<%= mqttConfig.host %>"/></label>
+		<label>Port:<input id="port" type="text" value="<%= mqttConfig.port %>"/></label>
+		<label>Client Id:<input id="clientId" type="text" value="<%= mqttConfig.clientId %>"/></label>
+		<label><input id="tls" type="checkbox" <% if (mqttConfig.tls == true) { %> checked <% } %>>TLS</label>
+		<input id="getCert" value="Download Certificate" type="button" data-mini="true">
+		<label>Certificate Password:<input id="certpwd" type="password" value="<%= mqttConfig.certpwd %>"/></label>
+	</div>	
+	<input id="save" value="Save" type="button" data-mini="true">
+</div>
